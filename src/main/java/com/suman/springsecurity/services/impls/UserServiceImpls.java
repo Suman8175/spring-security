@@ -29,7 +29,6 @@ public class UserServiceImpls implements UserService {
     private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
     private final AddressService addressService;
-    private final AddressMapper addressMapper;
 
 
     @Transactional
@@ -42,7 +41,7 @@ public class UserServiceImpls implements UserService {
             throw new ResourceConflictException();
         }
 
-        Address address = addressService.createAddress(userCreate.addressCreateDTO());
+        Address address = addressService.createAddress(userCreate.address());
         user.setAddress(address);
         User savedUser = userRepository.save(user);
 
@@ -50,6 +49,7 @@ public class UserServiceImpls implements UserService {
     }
 
     @Override
+    @Transactional
     public List<UserResponse> listOfUsers() {
         List<User> allUsers = userRepository.findAll();
         List<UserResponse> collectedUser = allUsers.stream().map(user -> userMapper.mapUserEntityToUserResponse(user)).collect(Collectors.toList());

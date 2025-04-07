@@ -4,7 +4,6 @@ import com.suman.springsecurity.dto.AddressResponseDTO;
 import com.suman.springsecurity.dto.UserCreate;
 import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.dto.UserUpdate;
-import com.suman.springsecurity.entity.Address;
 import com.suman.springsecurity.entity.User;
 import com.suman.springsecurity.utils.DateTimeCustomFormatter;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +36,9 @@ public class UserMapper {
     }
 
     public UserResponse mapUserEntityToUserResponse(User user){
+        if (user.getAddress().equals(null)){
+            return null;
+        }
         AddressResponseDTO addressResponseDTO =new AddressResponseDTO(user.getAddress().getAddressId(),user.getAddress().getCountry(),user.getAddress().getCity(),user.getAddress().getHouseNumber());
         UserResponse userResponse =new UserResponse(user.getUserId(), user.getUserName(), user.getUserPhoneNumber(), user.getUserEmail(), dateTimeFormatter.formatDateToString(user.getUserDOB()),addressResponseDTO);
         return userResponse;
