@@ -1,7 +1,6 @@
 package com.suman.springsecurity.services.impls;
 
 import com.suman.springsecurity.dto.AddressCreateDTO;
-import com.suman.springsecurity.dto.AddressResponseDTO;
 import com.suman.springsecurity.entity.Address;
 import com.suman.springsecurity.mapper.AddressMapper;
 import com.suman.springsecurity.repository.AddressRepository;
