@@ -5,7 +5,6 @@ import com.suman.springsecurity.entity.Address;
 import com.suman.springsecurity.entity.User;
 import com.suman.springsecurity.exception.ResourceConflictException;
 import com.suman.springsecurity.exception.ResourceNotFoundException;
-import com.suman.springsecurity.mapper.AddressMapper;
 import com.suman.springsecurity.mapper.UserMapper;
 import com.suman.springsecurity.repository.UserRepository;
 import com.suman.springsecurity.services.inter.AddressService;

@@ -83,6 +83,7 @@ public class UserServiceImplsTest {
         Mockito.when(addressService.createAddress(addressCreateDTO)).thenReturn(address);
         Mockito.when(userRepository.save(user)).thenReturn(user);
         Mockito.when(userMapper.mapUserEntityToUserResponse(user)).thenReturn(userResponse);
+
         //Act
         UserResponse result = userServiceImpls.createUser(userCreate);
 
