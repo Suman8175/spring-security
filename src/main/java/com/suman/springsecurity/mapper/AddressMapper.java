@@ -1,7 +1,6 @@
 package com.suman.springsecurity.mapper;
 
-import com.suman.springsecurity.dto.AddressCreateDTO;
-import com.suman.springsecurity.dto.AddressResponseDTO;
+import com.suman.springsecurity.dto.AddressDTO;
 import com.suman.springsecurity.entity.Address;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 public class AddressMapper {
 
-    public Address mapCreateAddressToAddressEntity(AddressCreateDTO addressCreateDTO){
+    public Address mapCreateAddressToAddressEntity(AddressDTO.AddressCreateDTO addressCreateDTO){
         Address address =new Address();
         address.setCity(addressCreateDTO.city());
         address.setCountry(addressCreateDTO.country());
@@ -17,9 +16,24 @@ public class AddressMapper {
         return address;
     }
 
-    public AddressResponseDTO mapAddressEntityToAddressResponseDTO(Address address){
-        AddressResponseDTO addressResponseDTO =new AddressResponseDTO(address.getAddressId(),address.getCountry(),address.getCity(),address.getHouseNumber());
+    public AddressDTO.AddressResponseDTO mapAddressEntityToAddressResponseDTO(Address address){
+        AddressDTO.AddressResponseDTO addressResponseDTO =new AddressDTO.AddressResponseDTO(address.getAddressId(),address.getCountry(),address.getCity(),address.getHouseNumber());
         return addressResponseDTO;
+    }
+    public Address mapAddressUpdateDTOToAddress(AddressDTO.AddressUpdateDTO addressUpdateDTO){
+        Address address =new Address();
+        address.setAddressId(addressUpdateDTO.addressId());
+        address.setCountry(addressUpdateDTO.country());
+        address.setCity(addressUpdateDTO.city());
+        address.setHouseNumber(addressUpdateDTO.houseNumber());
+        return address;
+    }
+
+    public Address mapOriginalAddressToUpdatedAddress(Address originalAddress,Address newAddress){
+        originalAddress.setCountry(newAddress.getCountry());
+        originalAddress.setCity(newAddress.getCity());
+        originalAddress.setHouseNumber(newAddress.getHouseNumber());
+        return originalAddress;
     }
 
 }

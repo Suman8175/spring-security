@@ -1,8 +1,7 @@
 package com.suman.springsecurity.service;
 
 
-import com.suman.springsecurity.dto.AddressCreateDTO;
-import com.suman.springsecurity.dto.AddressResponseDTO;
+import com.suman.springsecurity.dto.AddressDTO;
 import com.suman.springsecurity.dto.UserCreate;
 import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.entity.Address;
@@ -44,16 +43,16 @@ public class UserServiceImplsTest {
     private UserServiceImpls userServiceImpls ;
 
     private UserCreate userCreate;
-    private AddressCreateDTO addressCreateDTO;
+    private AddressDTO.AddressCreateDTO addressCreateDTO;
     private User user;
     private Address address;
     private UserResponse userResponse;
-    private AddressResponseDTO addressResponseDTO;
+    private AddressDTO.AddressResponseDTO addressResponseDTO;
 
     @BeforeEach
     void setUp(){
 
-        addressCreateDTO =new AddressCreateDTO("Np","Pokhara",14);
+        addressCreateDTO =new AddressDTO.AddressCreateDTO("Np","Pokhara",14);
         userCreate =new UserCreate("Suman",9876543210L,"suman@gmail.com","2021-01-01","password",addressCreateDTO);
         address =new Address();
         address.setAddressId(1);
@@ -67,7 +66,7 @@ public class UserServiceImplsTest {
         user.setUserName("Suman");
         user.setUserPassword("password");
         user.setAddress(address);
-        addressResponseDTO =new AddressResponseDTO(1,"Np","Pokhara",14);
+        addressResponseDTO =new AddressDTO.AddressResponseDTO(1,"Np","Pokhara",14);
         userResponse = new UserResponse(1,"Suman",9876543210L,"suman@gmail.com","2021-01-01",addressResponseDTO);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

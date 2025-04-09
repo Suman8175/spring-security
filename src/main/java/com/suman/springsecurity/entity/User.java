@@ -29,7 +29,7 @@ public class User {
     @Column(name = "user_password")
     private String userPassword;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER,orphanRemoval = true)
     @JoinColumn(name = "address_id")
     private Address address;
 

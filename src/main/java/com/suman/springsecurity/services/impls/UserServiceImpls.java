@@ -72,6 +72,8 @@ public class UserServiceImpls implements UserService {
             throw new ResourceNotFoundException("User not found");
         }
         User updatedUser = userMapper.editUserDetails(byId.get(), newUserDetails);
+        Address address = addressService.updateAddress(userToEdit.addressUpdateDTO());
+        updatedUser.setAddress(address);
         User newSavedUser = userRepository.save(updatedUser);
         return  userMapper.mapUserEntityToUserResponse(newSavedUser);
     }
@@ -93,7 +95,7 @@ public class UserServiceImpls implements UserService {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.userEmail(), login.userPassword()));
         System.out.println(authenticate.getDetails());
         if (authenticate.isAuthenticated()){
-            return new AuthResponse("qweererwwerq",12);
+            return new AuthResponse("yOu_ARE_successFullY_LoGiN",12);
         }
         throw new ResourceNotFoundException("User not found");
     }

@@ -6,6 +6,6 @@ public record UserResponse(
         Long userPhoneNumber,
         String userEmail,
         String userDOB,
-        AddressResponseDTO addressResponseDTO
+        AddressDTO.AddressResponseDTO addressResponseDTO
 ) {
 }

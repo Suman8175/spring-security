@@ -1,6 +1,6 @@
 package com.suman.springsecurity.mapper;
 
-import com.suman.springsecurity.dto.AddressResponseDTO;
+import com.suman.springsecurity.dto.AddressDTO;
 import com.suman.springsecurity.dto.UserCreate;
 import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.dto.UserUpdate;
@@ -39,7 +39,7 @@ public class UserMapper {
         if (user.getAddress().equals(null)){
             return null;
         }
-        AddressResponseDTO addressResponseDTO =new AddressResponseDTO(user.getAddress().getAddressId(),user.getAddress().getCountry(),user.getAddress().getCity(),user.getAddress().getHouseNumber());
+        AddressDTO.AddressResponseDTO addressResponseDTO =new AddressDTO.AddressResponseDTO(user.getAddress().getAddressId(),user.getAddress().getCountry(),user.getAddress().getCity(),user.getAddress().getHouseNumber());
         UserResponse userResponse =new UserResponse(user.getUserId(), user.getUserName(), user.getUserPhoneNumber(), user.getUserEmail(), dateTimeFormatter.formatDateToString(user.getUserDOB()),addressResponseDTO);
         return userResponse;
     }
