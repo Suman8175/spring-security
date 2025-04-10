@@ -80,7 +80,7 @@ public class UserController {
 
     @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody UserLogin userLogin){
-       return new ResponseEntity<>(userService.sendsResponseAfterScuessfulLogin(userLogin),HttpStatus.OK);
+       return new ResponseEntity<>(userService.sendsResponseAfterSuccessfulLogin(userLogin),HttpStatus.OK);
     }
 
 }

@@ -76,7 +76,7 @@ public class UserServiceImplsTest {
 
     @Test
     @Transactional
-     public void createUser_Success() {
+    public void createUser_Success() {
 
         //Arrange
         Mockito.when(userMapper.mapCreateUserToUserEntity(userCreate)).thenReturn(user);
@@ -90,7 +90,7 @@ public class UserServiceImplsTest {
 
         //Assert
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(userResponse.addressResponseDTO()).isEqualTo(addressResponseDTO);
+        Assertions.assertThat(userResponse.address()).isEqualTo(addressResponseDTO);
         Assertions.assertThat(userResponse.userEmail()).isEqualTo("suman@gmail.com");
 
     }
@@ -124,7 +124,7 @@ public class UserServiceImplsTest {
         //Assert
         Assertions.assertThat(userById).isNotNull();
         Assertions.assertThat(userById.userId()).isEqualTo(1);
-        Assertions.assertThat(userById.addressResponseDTO()).isEqualTo(addressResponseDTO);
+        Assertions.assertThat(userById.address()).isEqualTo(addressResponseDTO);
 
     }
 

@@ -7,6 +7,7 @@ import com.suman.springsecurity.dto.UserUpdate;
 import com.suman.springsecurity.entity.User;
 import com.suman.springsecurity.utils.DateTimeCustomFormatter;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +17,26 @@ public class UserMapper {
 
     private final DateTimeCustomFormatter dateTimeFormatter;
     private final PasswordEncoder passwordEncoder;
+    private final ModelMapper modelMapper;
+
+//    public User mapCreateUserToUserEntity(UserCreate userCreate){
+//        User user =new User();
+//        user.setUserName(userCreate.userName());
+//        user.setUserEmail(userCreate.userEmail());
+//        user.setUserPhoneNumber(userCreate.userPhoneNumber());
+//        user.setUserDOB(dateTimeFormatter.formatDateToYearMonthDayFormat(userCreate.userDOB()));
+//        user.setUserPassword(passwordEncoder.encode(userCreate.userPassword()));
+//        return user;
+//    }
 
     public User mapCreateUserToUserEntity(UserCreate userCreate){
-        User user =new User();
-        user.setUserName(userCreate.userName());
-        user.setUserEmail(userCreate.userEmail());
-        user.setUserPhoneNumber(userCreate.userPhoneNumber());
+       User user=modelMapper.map(userCreate,User.class);
+       user.setUserPassword(passwordEncoder.encode(userCreate.userPassword()));
         user.setUserDOB(dateTimeFormatter.formatDateToYearMonthDayFormat(userCreate.userDOB()));
-        user.setUserPassword(passwordEncoder.encode(userCreate.userPassword()));
         return user;
     }
+
+
 
     public User mapUpdateUserToUserEntity(UserUpdate userUpdate){
         User userUpdatedData =new User();

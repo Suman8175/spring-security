@@ -2,6 +2,7 @@ package com.suman.springsecurity.config;
 
 import com.suman.springsecurity.config.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -35,6 +36,8 @@ public class SecurityConfig {
         provider.setUserDetailsService(customUserDetails);
         return provider;
     }
+
+
 
 
 }
