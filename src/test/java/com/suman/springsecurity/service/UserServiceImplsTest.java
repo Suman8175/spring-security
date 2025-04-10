@@ -1,13 +1,11 @@
 package com.suman.springsecurity.service;
 
 
-import com.suman.springsecurity.dto.AddressCreateDTO;
-import com.suman.springsecurity.dto.AddressResponseDTO;
+import com.suman.springsecurity.dto.AddressDTO;
 import com.suman.springsecurity.dto.UserCreate;
 import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.entity.Address;
 import com.suman.springsecurity.entity.User;
-import com.suman.springsecurity.exception.ResourceConflictException;
 import com.suman.springsecurity.mapper.UserMapper;
 import com.suman.springsecurity.repository.UserRepository;
 import com.suman.springsecurity.services.impls.UserServiceImpls;
@@ -24,6 +22,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplsTest {
@@ -42,16 +43,16 @@ public class UserServiceImplsTest {
     private UserServiceImpls userServiceImpls ;
 
     private UserCreate userCreate;
-    private AddressCreateDTO addressCreateDTO;
+    private AddressDTO.AddressCreateDTO addressCreateDTO;
     private User user;
     private Address address;
     private UserResponse userResponse;
-    private AddressResponseDTO addressResponseDTO;
+    private AddressDTO.AddressResponseDTO addressResponseDTO;
 
     @BeforeEach
     void setUp(){
 
-        addressCreateDTO =new AddressCreateDTO("Np","Pokhara",14);
+        addressCreateDTO =new AddressDTO.AddressCreateDTO("Np","Pokhara",14);
         userCreate =new UserCreate("Suman",9876543210L,"suman@gmail.com","2021-01-01","password",addressCreateDTO);
         address =new Address();
         address.setAddressId(1);
@@ -65,7 +66,7 @@ public class UserServiceImplsTest {
         user.setUserName("Suman");
         user.setUserPassword("password");
         user.setAddress(address);
-        addressResponseDTO =new AddressResponseDTO(1,"Np","Pokhara",14);
+        addressResponseDTO =new AddressDTO.AddressResponseDTO(1,"Np","Pokhara",14);
         userResponse = new UserResponse(1,"Suman",9876543210L,"suman@gmail.com","2021-01-01",addressResponseDTO);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -75,7 +76,7 @@ public class UserServiceImplsTest {
 
     @Test
     @Transactional
-     public void createUser_Success() {
+    public void createUser_Success() {
 
         //Arrange
         Mockito.when(userMapper.mapCreateUserToUserEntity(userCreate)).thenReturn(user);
@@ -89,10 +90,44 @@ public class UserServiceImplsTest {
 
         //Assert
         Assertions.assertThat(result).isNotNull();
-        Assertions.assertThat(userResponse.addressResponseDTO()).isEqualTo(addressResponseDTO);
+        Assertions.assertThat(userResponse.address()).isEqualTo(addressResponseDTO);
         Assertions.assertThat(userResponse.userEmail()).isEqualTo("suman@gmail.com");
 
     }
+
+    @Test
+    @Transactional
+    public void getListOfUsers_ReturnsListOfUserResponse(){
+        //Arrange
+        Mockito.when(userRepository.findAll()).thenReturn(List.of(user));
+        Mockito.when(userMapper.mapUserEntityToUserResponse(user)).thenReturn(userResponse);
+
+        //Act
+        List<UserResponse> userResponses = userServiceImpls.listOfUsers();
+
+        //Assert
+        Assertions.assertThat(userResponses).isNotNull();
+        Assertions.assertThat(userResponses).isInstanceOf(List.class);
+        Assertions.assertThat(userResponses).allMatch(Objects::nonNull);
+
+    }
+
+    @Test
+    public void getUserById_ReturnsUserResponseById(){
+        //Arrange
+        Mockito.when(userRepository.findById(1)).thenReturn(Optional.ofNullable(user));
+        Mockito.when(userMapper.mapUserEntityToUserResponse(user)).thenReturn(userResponse);
+
+        //Act
+        UserResponse userById = userServiceImpls.getUserById(1);
+
+        //Assert
+        Assertions.assertThat(userById).isNotNull();
+        Assertions.assertThat(userById.userId()).isEqualTo(1);
+        Assertions.assertThat(userById.address()).isEqualTo(addressResponseDTO);
+
+    }
+
 
 
 }

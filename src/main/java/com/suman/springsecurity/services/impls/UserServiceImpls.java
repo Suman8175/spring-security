@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,6 +65,7 @@ public class UserServiceImpls implements UserService {
         return  userMapper.mapUserEntityToUserResponse( userById.get());
     }
 
+    @Transactional
     @Override
     public UserResponse updateUser(UserUpdate userToEdit, int id) {
         User newUserDetails = userMapper.mapUpdateUserToUserEntity(userToEdit);
@@ -72,10 +74,13 @@ public class UserServiceImpls implements UserService {
             throw new ResourceNotFoundException("User not found");
         }
         User updatedUser = userMapper.editUserDetails(byId.get(), newUserDetails);
+        Address address = addressService.updateAddress(userToEdit.addressUpdateDTO());
+        updatedUser.setAddress(address);
         User newSavedUser = userRepository.save(updatedUser);
         return  userMapper.mapUserEntityToUserResponse(newSavedUser);
     }
 
+    @Transactional
     @Override
     public void deleteExistingUserByUserId(int userId) {
         if (!userRepository.existsById(userId)){
@@ -85,17 +90,21 @@ public class UserServiceImpls implements UserService {
     }
 
     @Override
-    public AuthResponse sendsResponseAfterScuessfulLogin(UserLogin login) {
+    public AuthResponse sendsResponseAfterSuccessfulLogin(UserLogin login) {
         if (login ==null){
             throw new ResourceNotFoundException("User Missing");
         }
-        System.out.println("First Step");
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.userEmail(), login.userPassword()));
-        System.out.println(authenticate.getDetails());
-        if (authenticate.isAuthenticated()){
-            return new AuthResponse("qweererwwerq",12);
-        }
+        try {
+            Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.userEmail(), login.userPassword()));
+            System.out.println(authenticate.getDetails());
+            if (authenticate.isAuthenticated()) {
+                return new AuthResponse("yOu_ARE_successFullY_LoGiN", 12);
+            }
         throw new ResourceNotFoundException("User not found");
+        }
+        catch (AuthenticationException e){
+        throw new ResourceNotFoundException("User not found");
+        }
     }
 
     public boolean userExistsByEmail(String userEmail){

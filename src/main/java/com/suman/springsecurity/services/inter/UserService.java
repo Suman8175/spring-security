@@ -10,5 +10,5 @@ public interface UserService {
     UserResponse getUserById(int userId);
     UserResponse updateUser(UserUpdate userToEdit , int id);
     void deleteExistingUserByUserId(int userId);
-    AuthResponse sendsResponseAfterScuessfulLogin(UserLogin login);
+    AuthResponse sendsResponseAfterSuccessfulLogin(UserLogin login);
 }

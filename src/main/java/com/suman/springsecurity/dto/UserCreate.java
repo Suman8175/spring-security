@@ -23,6 +23,6 @@ public record UserCreate(
                          @NotBlank(message = "Password cannot be empty")
                          String userPassword,
 
-                         AddressCreateDTO address
+                         AddressDTO.AddressCreateDTO address
                          ) {
 }
