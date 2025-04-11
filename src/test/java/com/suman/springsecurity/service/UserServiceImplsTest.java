@@ -6,6 +6,7 @@ import com.suman.springsecurity.dto.UserCreate;
 import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.entity.Address;
 import com.suman.springsecurity.entity.User;
+import com.suman.springsecurity.exception.ResourceConflictException;
 import com.suman.springsecurity.mapper.UserMapper;
 import com.suman.springsecurity.repository.UserRepository;
 import com.suman.springsecurity.services.impls.UserServiceImpls;
@@ -25,6 +26,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplsTest {
@@ -126,6 +129,13 @@ public class UserServiceImplsTest {
         Assertions.assertThat(userById.userId()).isEqualTo(1);
         Assertions.assertThat(userById.address()).isEqualTo(addressResponseDTO);
 
+    }
+
+    @Test
+    public void createUser_ThrowsResourceConflict_OnUserEmailAlreadyExists(){
+        Mockito.when(userMapper.mapCreateUserToUserEntity(userCreate)).thenReturn(user);
+        Mockito.when(userServiceImpls.userExistsByEmail(user.getUserEmail())).thenReturn(true);
+        assertThrows(ResourceConflictException.class, () -> userServiceImpls.createUser(userCreate));
     }
 
 
