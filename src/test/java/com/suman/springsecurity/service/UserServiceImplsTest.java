@@ -138,6 +138,4 @@ public class UserServiceImplsTest {
         assertThrows(ResourceConflictException.class, () -> userServiceImpls.createUser(userCreate));
     }
 
-
-
 }

@@ -47,9 +47,6 @@ public class UserMapper {
     }
 
     public UserResponse mapUserEntityToUserResponse(User user){
-        if (user.getAddress().equals(null)){
-            return null;
-        }
         AddressDTO.AddressResponseDTO addressResponseDTO =new AddressDTO.AddressResponseDTO(user.getAddress().getAddressId(),user.getAddress().getCountry(),user.getAddress().getCity(),user.getAddress().getHouseNumber());
         UserResponse userResponse =new UserResponse(user.getUserId(), user.getUserName(), user.getUserPhoneNumber(), user.getUserEmail(), dateTimeFormatter.formatDateToString(user.getUserDOB()),addressResponseDTO);
         return userResponse;

@@ -68,8 +68,6 @@ public class AddressServiceImplsTest {
         mappedAddress.setCountry("IN");
         mappedAddress.setCity("Mumbai");
         mappedAddress.setHouseNumber(10);
-
-
     }
 
     @Test

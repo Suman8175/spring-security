@@ -31,9 +31,9 @@ public class UserController {
                         @ApiResponse(responseCode = "409",description = "Conflict")}
     )
     @PostMapping
-    public UserResponse createUser(@RequestBody @Valid UserCreate userCreate){
+    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid UserCreate userCreate){
         UserResponse user = userService.createUser(userCreate);
-        return user;
+        return new ResponseEntity<>(user,HttpStatus.CREATED);
     }
 
 
