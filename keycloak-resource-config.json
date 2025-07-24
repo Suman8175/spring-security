@@ -1,0 +1,234 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "bin-partition-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Bin Partition Controller Resource",
+      "uris": [
+        "/api/v1/users/{id}",
+        "/api/v1/users/{userId}",
+        "/api/v1/users",
+        "/api/v1/users/login"
+      ],
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-art-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Art Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "cbs-hook-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Cbs Hook Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "journal-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Journal Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "notification-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Notification Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "product-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Product Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "product-type-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Product Type Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "transaction-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Transaction Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "welcome-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Welcome Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "Card-stack-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Stack Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "printer-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Printer Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-file-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card File Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "delivery-addresses-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Delivery Addresses Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "name": "admin-access-policy",
+      "description": "Allowing access to admin resource",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "fetchRoles": "true",
+        "roles": "[{\"id\":\"admin\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "demo-access-policy",
+      "description": "Allowing access to demo resource",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "fetchRoles": "true",
+        "roles": "[{\"id\":\"admin\",\"required\":false},{\"id\":\"demo\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "admin-permission",
+      "description": "Allowing access to admin resource",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "scopes": "[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\"]",
+        "applyPolicies": "[\"admin-access-policy\"]"
+      }
+    },
+    {
+      "name": "demo-permission",
+      "description": "Allowing access to demo resource",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "scopes": "[\"GET\"]",
+        "applyPolicies": "[\"demo-access-policy\"]"
+      }
+    }
+  ],
+  "scopes": [
+    "GET",
+    "PUT",
+    "POST",
+    "DELETE",
+    "PATCH"
+  ],
+  "decisionStrategy": "UNANIMOUS"
+}

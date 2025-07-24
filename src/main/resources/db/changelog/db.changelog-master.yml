@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+        file: address.changelog.sql
+        relativeToChangelogFile: true
+
+  - include:
+      file: user.changelog.sql
+      relativeToChangelogFile: true
+
