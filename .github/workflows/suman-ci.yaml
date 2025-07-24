@@ -1,0 +1,48 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-request:
+    name: On every Pull Request
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SPRING_JPA_SHOW_SQL: false
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+#      - name: Setup Node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+#      - name: Install Node.js packages
+#        run: npm install
+#
+#      - name: Lint frontend code
+#        run: npm run lint
+
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Run Maven Package
+        run: mvn package

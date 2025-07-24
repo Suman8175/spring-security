@@ -11,6 +11,7 @@ import com.suman.springsecurity.services.inter.AddressService;
 import com.suman.springsecurity.services.inter.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,15 +22,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpls implements UserService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
     private final AddressService addressService;
-
 
     @Transactional
     @Override
@@ -38,6 +40,7 @@ public class UserServiceImpls implements UserService {
 
         boolean doesEmailAlreadyExists = userExistsByEmail(user.getUserEmail());
         if (doesEmailAlreadyExists){
+            log.error("User already Exists");
             throw new ResourceConflictException();
         }
 

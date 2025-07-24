@@ -6,7 +6,10 @@ import com.suman.springsecurity.dto.UserResponse;
 import com.suman.springsecurity.dto.UserUpdate;
 import com.suman.springsecurity.services.inter.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Tag(name = "UserController",description = "This is for handling all users documentation")
 @RequestMapping("/api/v1/users")
+@CrossOrigin("*")
 public class UserController {
 
     private final UserService userService;
@@ -82,5 +86,8 @@ public class UserController {
     public ResponseEntity<?> loginUser(@RequestBody UserLogin userLogin){
        return new ResponseEntity<>(userService.sendsResponseAfterSuccessfulLogin(userLogin),HttpStatus.OK);
     }
+
+
+
 
 }

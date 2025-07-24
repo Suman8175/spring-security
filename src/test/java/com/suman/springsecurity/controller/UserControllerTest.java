@@ -19,6 +19,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.List;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -87,6 +89,20 @@ public class UserControllerTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    void getAllUsers_Success(){
+        UserResponse response=new UserResponse(2,"Arpan Thapa",9876543210L,"arpan@gmail.com","2010-01-02",mockAddress);
+        when(userService.listOfUsers()).thenReturn(List.of(mockUserResponse,response));
+
+        ResponseEntity<?> allUsers = userController.getAllUsers();
+        List<UserResponse> body = (List) allUsers.getBody();
+        Assertions.assertThat(allUsers).isNotNull();
+        Assertions.assertThat(allUsers.getStatusCode()).isEqualTo(HttpStatus.OK);
+        Assertions.assertThat(body.get(0)).isEqualTo(mockUserResponse);
+        Assertions.assertThat(body.get(1)).isEqualTo(response);
+        Assertions.assertThat(body.size()).isEqualTo(2);
     }
 
 

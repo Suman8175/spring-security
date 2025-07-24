@@ -1,0 +1,287 @@
+2025-06-18T15:07:08.382+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 19.0.2 with PID 6172 (C:\Users\SumanPC\Desktop\springsecurity\target\classes started by SumanPC in C:\Users\SumanPC\Desktop\springsecurity)
+2025-06-18T15:07:08.393+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-06-18T15:07:11.401+05:45  INFO 6172 --- [springsecurity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-18T15:07:11.565+05:45  INFO 6172 --- [springsecurity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 2 JPA repository interfaces.
+2025-06-18T15:07:12.929+05:45  INFO 6172 --- [springsecurity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8140 (http)
+2025-06-18T15:07:12.965+05:45  INFO 6172 --- [springsecurity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-18T15:07:12.966+05:45  INFO 6172 --- [springsecurity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-06-18T15:07:13.119+05:45  INFO 6172 --- [springsecurity] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-18T15:07:13.120+05:45  INFO 6172 --- [springsecurity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4581 ms
+2025-06-18T15:07:13.488+05:45  INFO 6172 --- [springsecurity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-18T15:07:13.927+05:45  INFO 6172 --- [springsecurity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e30db85
+2025-06-18T15:07:13.933+05:45  INFO 6172 --- [springsecurity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-18T15:07:14.354+05:45  INFO 6172 --- [springsecurity] [main] liquibase.database                       : Set default schema name to public
+2025-06-18T15:07:15.546+05:45  INFO 6172 --- [springsecurity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-06-18T15:07:15.649+05:45  INFO 6172 --- [springsecurity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2025-06-18T15:07:15.653+05:45  INFO 6172 --- [springsecurity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-06-18T15:07:15.674+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : UPDATE SUMMARY
+2025-06-18T15:07:15.675+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : Run:                          0
+2025-06-18T15:07:15.675+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : Previously run:               7
+2025-06-18T15:07:15.676+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : Filtered out:                 0
+2025-06-18T15:07:15.676+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : -------------------------------
+2025-06-18T15:07:15.677+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : Total change sets:            7
+2025-06-18T15:07:15.680+05:45  INFO 6172 --- [springsecurity] [main] liquibase.util                           : Update summary generated
+2025-06-18T15:07:15.691+05:45  INFO 6172 --- [springsecurity] [main] liquibase.command                        : Command execution complete
+2025-06-18T15:07:15.906+05:45  INFO 6172 --- [springsecurity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-18T15:07:16.080+05:45  INFO 6172 --- [springsecurity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-06-18T15:07:16.181+05:45  INFO 6172 --- [springsecurity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-18T15:07:16.940+05:45  INFO 6172 --- [springsecurity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-18T15:07:17.087+05:45  WARN 6172 --- [springsecurity] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-18T15:07:17.124+05:45  INFO 6172 --- [springsecurity] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-18T15:07:19.561+05:45  INFO 6172 --- [springsecurity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-18T15:07:19.568+05:45  INFO 6172 --- [springsecurity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-18T15:07:19.780+05:45  WARN 6172 --- [springsecurity] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-18T15:07:20.924+05:45  INFO 6172 --- [springsecurity] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetails
+2025-06-18T15:07:22.471+05:45  INFO 6172 --- [springsecurity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8140 (http) with context path '/'
+2025-06-18T15:07:22.498+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.SpringsecurityApplication          : Started SpringsecurityApplication in 15.322 seconds (process running for 17.142)
+2025-06-18T15:07:22.510+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.jpt.service.GetEndpoints           : Fetched API endpoints by controller: {BasicErrorController=[/error], UserController=[/api/v1/users/{id}, /api/v1/users/{userId}, /api/v1/users, /api/v1/users/login]}
+2025-06-18T15:07:22.616+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.j.s.KeycloakConfigJsonGeneration   : Keycloak Authorization Config: KeycloakAuthorizationConfig(allowRemoteResourceManagement=true, policyEnforcementMode=ENFORCING, resources=[Resources(name=bin-partition-controller-resource, ownerManagedAccess=true, displayName=Bin Partition Controller Resource, attributes=null, uris=[/api/v1/users/{id}, /api/v1/users/{userId}, /api/v1/users, /api/v1/users/login], scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=card-art-controller-resource, ownerManagedAccess=true, displayName=Card Art Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=card-controller-resource, ownerManagedAccess=true, displayName=Card Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=cbs-hook-controller-resource, ownerManagedAccess=true, displayName=Cbs Hook Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=journal-controller-resource, ownerManagedAccess=true, displayName=Journal Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=notification-controller-resource, ownerManagedAccess=true, displayName=Notification Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=product-controller-resource, ownerManagedAccess=true, displayName=Product Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=product-type-controller-resource, ownerManagedAccess=true, displayName=Product Type Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=transaction-controller-resource, ownerManagedAccess=true, displayName=Transaction Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=welcome-controller-resource, ownerManagedAccess=true, displayName=Welcome Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=Card-stack-controller-resource, ownerManagedAccess=true, displayName=Card Stack Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=printer-controller-resource, ownerManagedAccess=true, displayName=Printer Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=card-file-controller-resource, ownerManagedAccess=true, displayName=Card File Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null), Resources(name=delivery-addresses-controller-resource, ownerManagedAccess=true, displayName=Delivery Addresses Controller Resource, attributes=null, uris=null, scopes=[GET, PUT, POST, DELETE, PATCH], iconUri=null)], policies=[Policies(name=admin-access-policy, description=Allowing access to admin resource, type=role, logic=POSITIVE, decisionStrategy=UNANIMOUS, config=Config(fetchRoles=true, roles=[{"id":"admin","required":false}], scopes=null, applyPolicies=null)), Policies(name=demo-access-policy, description=Allowing access to demo resource, type=role, logic=POSITIVE, decisionStrategy=UNANIMOUS, config=Config(fetchRoles=true, roles=[{"id":"admin","required":false},{"id":"demo","required":false}], scopes=null, applyPolicies=null)), Policies(name=admin-permission, description=Allowing access to admin resource, type=scope, logic=POSITIVE, decisionStrategy=UNANIMOUS, config=Config(fetchRoles=null, roles=null, scopes=["GET","PUT","POST","DELETE","PATCH"], applyPolicies=["admin-access-policy"])), Policies(name=demo-permission, description=Allowing access to demo resource, type=scope, logic=POSITIVE, decisionStrategy=UNANIMOUS, config=Config(fetchRoles=null, roles=null, scopes=["GET"], applyPolicies=["demo-access-policy"]))], scopes=[GET, PUT, POST, DELETE, PATCH], decisionStrategy=UNANIMOUS)
+2025-06-18T15:07:22.656+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.j.s.KeycloakConfigJsonGeneration   : JSON: {
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "bin-partition-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Bin Partition Controller Resource",
+      "uris": [
+        "/api/v1/users/{id}",
+        "/api/v1/users/{userId}",
+        "/api/v1/users",
+        "/api/v1/users/login"
+      ],
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-art-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Art Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "cbs-hook-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Cbs Hook Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "journal-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Journal Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "notification-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Notification Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "product-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Product Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "product-type-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Product Type Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "transaction-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Transaction Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "welcome-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Welcome Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "Card-stack-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card Stack Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "printer-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Printer Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "card-file-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Card File Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "name": "delivery-addresses-controller-resource",
+      "ownerManagedAccess": true,
+      "displayName": "Delivery Addresses Controller Resource",
+      "scopes": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "name": "admin-access-policy",
+      "description": "Allowing access to admin resource",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "fetchRoles": "true",
+        "roles": "[{\"id\":\"admin\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "demo-access-policy",
+      "description": "Allowing access to demo resource",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "fetchRoles": "true",
+        "roles": "[{\"id\":\"admin\",\"required\":false},{\"id\":\"demo\",\"required\":false}]"
+      }
+    },
+    {
+      "name": "admin-permission",
+      "description": "Allowing access to admin resource",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "scopes": "[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\"]",
+        "applyPolicies": "[\"admin-access-policy\"]"
+      }
+    },
+    {
+      "name": "demo-permission",
+      "description": "Allowing access to demo resource",
+      "type": "scope",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "scopes": "[\"GET\"]",
+        "applyPolicies": "[\"demo-access-policy\"]"
+      }
+    }
+  ],
+  "scopes": [
+    "GET",
+    "PUT",
+    "POST",
+    "DELETE",
+    "PATCH"
+  ],
+  "decisionStrategy": "UNANIMOUS"
+}
+2025-06-18T15:07:22.659+05:45  INFO 6172 --- [springsecurity] [main] c.s.s.j.s.KeycloakConfigJsonGeneration   : JSON file generated successfully at: keycloak-resource-config.json
+2025-06-18T16:04:50.545+05:45  WARN 6172 --- [springsecurity] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m6s554ms950µs900ns).
+2025-06-18T18:11:53.877+05:45  WARN 6172 --- [springsecurity] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m32s935ms869µs100ns).
+2025-06-18T18:40:49.402+05:45  INFO 6172 --- [springsecurity] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-18T18:40:49.696+05:45  INFO 6172 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-18T18:40:49.889+05:45  INFO 6172 --- [springsecurity] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-18T18:40:50.002+05:45  INFO 6172 --- [springsecurity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-18T18:40:50.034+05:45  INFO 6172 --- [springsecurity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
