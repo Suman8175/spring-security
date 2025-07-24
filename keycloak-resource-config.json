@@ -9,8 +9,8 @@
       "uris": [
         "/api/v1/users/{id}",
         "/api/v1/users/{userId}",
-        "/api/v1/users",
-        "/api/v1/users/login"
+        "/api/v1/users/login",
+        "/api/v1/users"
       ],
       "scopes": [
         "GET",
